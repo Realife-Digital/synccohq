@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Main from "@/components/Main";
+import SupportSection from "@/components/Support";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
@@ -130,6 +131,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <SupportSection />
       <Footer />
     </div>
   );
