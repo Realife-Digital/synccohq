@@ -23,7 +23,7 @@ export default function Footer() {
               <li>
                 <Link
                   className="hover:text-gray-900 transition-colors duration-200"
-                  href="/privacy#terms"
+                  href="/terms-and-conditions"
                 >
                   Terms & conditions
                 </Link>
@@ -31,7 +31,7 @@ export default function Footer() {
               <li>
                 <Link
                   className="hover:text-gray-900 transition-colors duration-200"
-                  href="#"
+                  href="/refund-policy"
                 >
                   Refund policy
                 </Link>

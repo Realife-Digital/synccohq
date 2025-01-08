@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PolicySidebar from "@/components/privacy-components/Sidebar";
-import PrivacyContent from "@/components/privacy-components/Privacy";
+import TermsContent from "@/components/privacy-components/Terms";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -10,7 +10,7 @@ const poppins = Poppins({
   weight: ["200", "400", "500", "600", "700"],
 });
 
-export default function PrivacyPage() {
+export default function TermsPage() {
   return (
     <div
       className={`${poppins.variable} font-[family-name:var(--font-poppins)]`}
@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         </div>
         {/* Main Content */}
         <main className="w-full md:w-3/4 lg:px-16 px-4">
-          <PrivacyContent />
+          <TermsContent />
         </main>
       </div>
       <Footer />

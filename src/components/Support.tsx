@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const SupportSection = () => {
@@ -11,15 +12,28 @@ const SupportSection = () => {
           </div>
           <h3 className="text-xl font-semibold mb-2">Talk to us!</h3>
           <p className="text-gray-600 mb-4">
-            Get in touch with our support team via email, call, or chat. You can
-            also tweet us @realifedigital
+            Get in touch with our support team via email,{" "}
+            <a
+              href="tel:+2347012824846"
+              className="text-primary-dark hover:underline"
+            >
+              call
+            </a>
+            , or chat. You can also tweet us @realifedigital
           </p>
-          <a
+
+          <Link
+            href="/contact"
+            className="text-primary-dark hover:underline font-medium"
+          >
+            Contact us
+          </Link>
+          {/* <a
             href="tel:+2347012824846"
             className="text-primary-dark text-xl  hover:underline font-medium"
           >
             +234 701 282 4846
-          </a>
+          </a> */}
         </div>
 
         {/* Got a Question Section */}
@@ -47,9 +61,12 @@ const SupportSection = () => {
           <p className="text-gray-600 mb-4">
             Submit a request and we&#39;ll get back to you soon!
           </p>
-          <a href="#" className="text-primary-dark hover:underline font-medium">
+          <Link
+            href="/contact"
+            className="text-primary-dark hover:underline font-medium"
+          >
             Submit a ticket
-          </a>
+          </Link>
         </div>
       </div>
     </div>
