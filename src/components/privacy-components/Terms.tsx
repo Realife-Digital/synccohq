@@ -4,7 +4,7 @@ export default function TermsContent() {
   return (
     <>
       <div className="text-justify space-y-4">
-        <h1 className="text-5xl font-bold mb-4">Terms and Conditions</h1>
+        <h1 className="lg:text-5xl text-2xlfont-bold mb-4">Terms and Conditions</h1>
         <p>Efffective Date: January 4th, 2025</p>
         <p>
           Welcome to Realife Digital Concept. By accessing or using our

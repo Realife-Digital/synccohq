@@ -4,7 +4,7 @@ export default function PrivacyContent() {
   return (
     <>
       <div className="space-y-4 text-justify">
-        <h1 className="text-5xl font-bold mb-4">Privacy Policy</h1>
+        <h1 className="lg:ext-5xl text-2xl font-bold mb-4">Privacy Policy</h1>
         <p>Efffective Date: January 4th, 2025</p>
         <p>
           Realife Digital Concept is committed to protecting your privacy. This

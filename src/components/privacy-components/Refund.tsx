@@ -4,7 +4,7 @@ export default function RefundContent() {
     return (
       <>
         <div className="space-y-4 text-justify">
-          <h1 className="text-5xl font-bold mb-4">Refund policy</h1>
+          <h1 className="lg:text-5xl text-2xl font-bold mb-4">Refund policy</h1>
           <p>Efffective Date: January 4th, 2025</p>
           <p className='text-justify'>
             At Realife Digital Concept, we strive to deliver high-quality
