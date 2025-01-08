@@ -16,9 +16,7 @@ export default function Main() {
           <div className="flex justify-center items-center">
             <Link
               className="rounded-lg bg-primary text-white transition-colors flex items-center justify-center hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
             >
               Contact us
             </Link>
