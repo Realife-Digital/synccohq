@@ -4,7 +4,9 @@ export default function TermsContent() {
   return (
     <>
       <div className="text-justify space-y-4">
-        <h1 className="lg:text-5xl text-2xlfont-bold mb-4">Terms and Conditions</h1>
+        <h1 className="lg:text-5xl text-4xl font-bold mb-4">
+          Terms and Conditions
+        </h1>
         <p>Efffective Date: January 4th, 2025</p>
         <p>
           Welcome to Realife Digital Concept. By accessing or using our
@@ -12,7 +14,8 @@ export default function TermsContent() {
           If you do not agree to these terms, you may not use our services.
         </p>
         <ol className="list-decimal list-inside space-y-4 text-justify">
-          <li>Services Provided
+          <li>
+            Services Provided
             <p>
               Realife Digital Concept provides software solutions, including web
               and mobile application development, website design, and other
@@ -20,7 +23,8 @@ export default function TermsContent() {
               agreement for each project.
             </p>
           </li>
-          <li>User Obligations
+          <li>
+            User Obligations
             <p>
               You must provide accurate and complete information during project
               onboarding.
@@ -31,20 +35,23 @@ export default function TermsContent() {
               solutions delivered by Realife Digital Concept.
             </p>
           </li>
-          <li>Intellectual Property
+          <li>
+            Intellectual Property
             <p>
               All intellectual property, including but not limited to software,
               designs, and documentation, remains the property of Realife
               Digital Concept unless otherwise agreed.
             </p>
           </li>
-          <li>Payment
+          <li>
+            Payment
             <p>
               Payments must be made as per the agreed terms. Failure to pay on
               time may result in project delays or termination.
             </p>
           </li>
-          <li>Limitation of Liability
+          <li>
+            Limitation of Liability
             <p>
               {" "}
               Realife Digital Concept is not liable for indirect, incidental, or
@@ -52,14 +59,16 @@ export default function TermsContent() {
               delivered products.
             </p>
           </li>
-          <li>Termination
+          <li>
+            Termination
             <p>
               Either party may terminate the agreement with written notice. In
               the event of termination, all outstanding fees for completed work
               must be settled.
             </p>
           </li>
-          <li>Governing Law
+          <li>
+            Governing Law
             <p>
               These terms are governed by the laws of [Insert Jurisdiction].
               Disputes will be resolved through mediation or arbitration in

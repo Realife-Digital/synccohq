@@ -15,17 +15,17 @@ export default function Footer() {
               <li>
                 <Link
                   className=" hover:text-gray-900 transition-colors duration-200"
-                  href="#"
+                  href="/privacy"
                 >
-                  Jobs
+                  Privacy policy
                 </Link>
               </li>
               <li>
                 <Link
                   className="hover:text-gray-900 transition-colors duration-200"
-                  href="#"
+                  href="/privacy#terms"
                 >
-                  Merch
+                  Terms & conditions
                 </Link>
               </li>{" "}
               <li>
@@ -33,7 +33,7 @@ export default function Footer() {
                   className="hover:text-gray-900 transition-colors duration-200"
                   href="#"
                 >
-                  Meetups
+                  Refund policy
                 </Link>
               </li>
             </ul>
