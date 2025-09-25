@@ -3,12 +3,73 @@
 @tailwind utilities;
 
 :root {
-  --background: #f9f9f9; /* Light background */
-  --foreground: #1a1a1a; /* Dark gray text */
-  --accent: #00695c; /* Deep teal accent color */
-  --button-bg: #e0e0e0; /* Light gray button background */
-  --button-hover: #004d40; /* Darker teal for button hover */
-  --divider: #cccccc; /* Soft gray for dividers */
+  /* Syncco Labs Theme Colors */
+  --background: #f8f8f8; /* Light background */
+  --foreground: #2d2d2d; /* Dark gray text */
+
+  /* Primary Brand Colors */
+  --primary: #7b61ff; /* Purple primary */
+  --primary-container: rgba(123, 97, 255, 0.12);
+  --on-primary: #ffffff;
+  --on-primary-container: #1a0057;
+
+  /* Secondary Brand Colors */
+  --secondary: #00d0b4; /* Teal secondary */
+  --secondary-container: #daf3f0;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #00201c;
+
+  /* Accent Colors */
+  --accent: #f2c94c; /* Yellow accent */
+  --on-accent: #2d2d2d;
+
+  /* Neutral Colors */
+  --neutral: #2d2d2d;
+  --neutral-variant: #bdbdbd;
+  --neutral-background: #f7f7f7;
+
+  /* Surface Colors */
+  --surface: #ffffff;
+  --surface-variant: #f3f4f6;
+  --on-surface: #2d2d2d;
+  --on-surface-variant: #6b7280;
+
+  /* Background Colors */
+  --on-background: #2d2d2d;
+
+  /* State Colors */
+  --error: #dc2626;
+  --on-error: #ffffff;
+  --error-container: rgba(220, 38, 38, 0.12);
+  --on-error-container: #410e0b;
+
+  --warning: #f59e0b;
+  --on-warning: #ffffff;
+  --warning-container: rgba(245, 158, 11, 0.12);
+  --on-warning-container: #431d03;
+
+  --success: #15d25e;
+  --on-success: #ffffff;
+  --success-container: rgba(21, 210, 94, 0.12);
+  --on-success-container: #002106;
+
+  --info: #3b82f6;
+  --on-info: #ffffff;
+  --info-container: rgba(59, 130, 246, 0.12);
+  --on-info-container: #001d35;
+
+  /* Outline Colors */
+  --outline: #e5e7eb;
+  --outline-variant: #d1d5db;
+
+  /* Custom Colors */
+  --contact-exchange-bg: #f8f5ff;
+  --button-bg: #f3f4f6;
+
+  /* Legacy support */
+  --accent: var(--primary);
+  --button-hover: var(--primary);
+  --divider: var(--outline);
 }
 
 body {
@@ -18,7 +79,7 @@ body {
 }
 
 .greyC {
-  filter: gray;
+  filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   transition: 0.4s;
 }
