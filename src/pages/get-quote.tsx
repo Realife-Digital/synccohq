@@ -1,4 +1,5 @@
 import PageShell from "@/components/PageShell";
+import { pagesSeo } from "@/lib/seo";
 import React, { useState } from "react";
 import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
 
@@ -29,7 +30,11 @@ export default function GetQuote() {
   };
 
   return (
-    <PageShell>
+    <PageShell
+      title={pagesSeo.getQuote.title}
+      description={pagesSeo.getQuote.description}
+      path={pagesSeo.getQuote.path}
+    >
       <section className="border-b border-outline bg-surface-variant py-20">
         <div className="section-shell max-w-3xl">
           <h1 className="text-4xl font-semibold text-surface-on md:text-5xl">Get your project quote</h1>

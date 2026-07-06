@@ -1,4 +1,5 @@
 import PageShell from "@/components/PageShell";
+import { pagesSeo } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -71,7 +72,7 @@ export default function Blog() {
   const categories = ["All", "Web Development", "Mobile Development", "Design", "Technology", "Security", "Performance"];
 
   return (
-    <PageShell>
+    <PageShell title={pagesSeo.blog.title} description={pagesSeo.blog.description} path={pagesSeo.blog.path}>
       <section className="border-b border-outline bg-surface-variant py-20">
         <div className="section-shell max-w-3xl">
           <h1 className="text-4xl font-semibold text-surface-on md:text-5xl">Insights from the studio</h1>

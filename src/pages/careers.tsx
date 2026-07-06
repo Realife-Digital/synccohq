@@ -1,4 +1,5 @@
 import PageShell from "@/components/PageShell";
+import { pagesSeo } from "@/lib/seo";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -60,7 +61,7 @@ export default function Careers() {
   });
 
   return (
-    <PageShell>
+    <PageShell title={pagesSeo.careers.title} description={pagesSeo.careers.description} path={pagesSeo.careers.path}>
       <div className="min-h-screen bg-surface">
         <div className="section-shell py-16">
           {/* Header Section */}

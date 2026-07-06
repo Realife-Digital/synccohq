@@ -1,0 +1,21 @@
+{
+  "name": "Syncco Labs",
+  "short_name": "Syncco",
+  "description": "Software design and development studio for web platforms, mobile apps, and internal tools.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "180x180"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import Main from "@/components/Main";
 import PageShell from "@/components/PageShell";
 import SupportSection from "@/components/Support";
+import { pagesSeo } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -67,7 +68,11 @@ const trustLogos = [
 
 export default function Home() {
   return (
-    <PageShell>
+    <PageShell
+      title={pagesSeo.home.title}
+      description={pagesSeo.home.description}
+      path={pagesSeo.home.path}
+    >
       <Main />
 
       <section className="border-b border-outline bg-surface py-20">
