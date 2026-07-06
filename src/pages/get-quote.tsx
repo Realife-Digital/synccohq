@@ -1,14 +1,6 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { Poppins } from "next/font/google";
+import PageShell from "@/components/PageShell";
 import React, { useState } from "react";
-import { Check } from "@phosphor-icons/react/dist/ssr";
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["200", "400", "500", "600", "700"],
-});
+import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
 
 export default function GetQuote() {
   const [formData, setFormData] = useState({
@@ -37,22 +29,18 @@ export default function GetQuote() {
   };
 
   return (
-    <div className={`${poppins.variable} font-[family-name:var(--font-poppins)]`}>
-      <Header />
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-surface to-secondary/5 py-24">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-surface-on mb-6">Get Your Project Quote</h1>
-          <p className="text-xl text-surface-on-variant mb-8 max-w-3xl mx-auto">
-            Ready to bring your digital vision to life? Let&apos;s discuss your project and get you a detailed quote.
+    <PageShell>
+      <section className="border-b border-outline bg-surface-variant py-20">
+        <div className="section-shell max-w-3xl">
+          <h1 className="text-4xl font-semibold text-surface-on md:text-5xl">Get your project quote</h1>
+          <p className="mt-4 text-lg leading-relaxed text-surface-on-variant">
+            Tell us about your product and we will respond with scope, timeline, and a clear proposal.
           </p>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-24 bg-surface">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="bg-surface py-20">
+        <div className="section-shell">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Form Section */}
             <div>
@@ -196,36 +184,28 @@ export default function GetQuote() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-primary-on py-4 px-8 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
-                >
-                  Get My Quote
+                <button type="submit" className="btn-primary w-full py-4">
+                  Get my quote
                 </button>
               </form>
             </div>
 
             {/* Services & Info Section */}
             <div>
-              <div className="bg-primary-container rounded-2xl p-8">
-                <h3 className="text-2xl font-bold text-primary mb-4">Why Choose Syncco Labs?</h3>
+              <div className="rounded-xl border border-outline bg-surface-variant p-8">
+                <h3 className="mb-4 text-2xl font-semibold text-surface-on">Why Syncco Labs</h3>
                 <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-primary mt-1 flex-shrink-0" />
-                    <span className="text-primary-on-container">Experienced team with proven track record</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-primary mt-1 flex-shrink-0" />
-                    <span className="text-primary-on-container">Modern technologies and best practices</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-primary mt-1 flex-shrink-0" />
-                    <span className="text-primary-on-container">Transparent pricing with no hidden costs</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check size={20} className="text-primary mt-1 flex-shrink-0" />
-                    <span className="text-primary-on-container">Ongoing support and maintenance</span>
-                  </li>
+                  {[
+                    "Experienced team with a proven delivery record",
+                    "Modern technologies and maintainable architecture",
+                    "Transparent pricing with no hidden costs",
+                    "Ongoing support after launch",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3">
+                      <CheckIcon size={20} className="mt-0.5 shrink-0 text-surface-on-variant" aria-hidden />
+                      <span className="text-surface-on-variant">{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -244,8 +224,6 @@ export default function GetQuote() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageShell>
   );
 }

@@ -1,74 +1,81 @@
-import React from "react";
+import Logo from "@/components/Logo";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import { ArrowRightIcon, ListIcon, XIcon } from "@phosphor-icons/react/dist/ssr";
+
+const navLinks = [
+  { label: "Blog", href: "/blog" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+];
+
+function navLinkClass(isActive: boolean) {
+  return [
+    "rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200",
+    isActive
+      ? "bg-brand-muted text-surface-on ring-1 ring-brand/20"
+      : "text-surface-on-variant hover:text-surface-on",
+  ].join(" ");
+}
 
 export default function Header() {
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const router = useRouter();
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const closeMobileMenu = () => setMobileOpen(false);
 
   return (
-    <div className="md:bg-opacity-90 transition duration-300 ease-in-out bg-surface">
-      <div className="flex flex-col max-w-6xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 uppercase">
-        <div className="flex flex-row items-center justify-between p-4">
-          <Link href="/" className="text-lg font-semibold rounded-lg tracking-widest focus:outline-none focus:shadow-outline flex items-center gap-3">
-            <h1 className="text-4xl font-light tracking-tighter md:text-4x1 lg:text-3xl uppercase">Syncco</h1>
+    <header className="sticky top-0 z-50 border-b border-outline bg-surface/90 backdrop-blur-md">
+      <div className="section-shell flex items-center justify-between gap-4 py-4">
+        <Logo onClick={closeMobileMenu} />
+
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+          {navLinks.map((link) => (
+            <Link key={link.href} href={link.href} className={navLinkClass(router.pathname === link.href)}>
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <Link href="/get-quote" className="btn-primary py-2.5">
+            Get quote
+            <ArrowRightIcon size={16} weight="bold" aria-hidden />
           </Link>
-          <button
-            className="text-surface-on cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none"
-            type="button"
-            aria-label="button"
-            onClick={() => setNavbarOpen(!navbarOpen)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="feather feather-menu"
-            >
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
         </div>
-        <div className={`md:flex flex-grow items-center ${navbarOpen ? "flex" : "hidden"}`}>
-          <nav className="flex-col flex-grow">
-            <ul className="flex flex-grow justify-end flex-wrap items-center">
-              <li>
-                <Link
-                  href="/blog"
-                  className="font-medium text-surface-on-variant hover:text-surface-on px-5 py-3 flex items-center transition duration-150 ease-in-out"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/careers"
-                  className="font-medium text-surface-on-variant hover:text-surface-on px-5 py-3 flex items-center transition duration-150 ease-in-out"
-                >
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link
-                  className="inline-flex items-center px-4 py-2 mt-2 font-medium text-primary-on transition duration-500 ease-in-out transform rounded-lg text-md md:mt-0 md:ml-4 bg-primary"
-                  href="/get-quote"
-                >
-                  <span className="justify-center">Get Quote</span>
-                  <svg className="w-3 h-3 fill-current text-primary-on flex ml-2 -mr-1" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fillRule="nonzero" />
-                  </svg>
-                </Link>
-              </li>
-            </ul>
+
+        <button
+          type="button"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-md text-surface-on transition-colors hover:bg-surface-variant md:hidden"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((open) => !open)}
+        >
+          {mobileOpen ? <XIcon size={22} aria-hidden /> : <ListIcon size={22} aria-hidden />}
+        </button>
+      </div>
+
+      {mobileOpen ? (
+        <div className="border-t border-outline bg-surface md:hidden">
+          <nav aria-label="Mobile" className="section-shell flex flex-col gap-1 py-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMobileMenu}
+                className={navLinkClass(router.pathname === link.href)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link href="/get-quote" onClick={closeMobileMenu} className="btn-primary mt-3">
+              Get quote
+              <ArrowRightIcon size={16} weight="bold" aria-hidden />
+            </Link>
           </nav>
         </div>
-      </div>
-    </div>
+      ) : null}
+    </header>
   );
 }

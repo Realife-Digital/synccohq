@@ -1,23 +1,34 @@
 import Link from "next/link";
+import { ArrowRightIcon } from "@phosphor-icons/react/dist/ssr";
 
 export default function Main() {
   return (
-    <main className="flex flex-col items-center justify-center space-y-16 bg-surface py-24">
-      <div className="max-w-7xl lg:w-3/5 px-4 pt-16 mx-auto">
-        <div className="text-center md:w-2/3 w-full mb-24 mx-auto">
-          <h1 className="mb-5 lg:text-6xl text-4xl items-center font-semibold">Crafting Exceptional Digital Solutions</h1>
-          <p className="lg:text-xl text-md mb-12">Apps, Web, Mobile, and Beyond—groundbreaking platforms that connect, simplify, and inspire.</p>
+    <section className="border-b border-outline bg-surface">
+      <div className="section-shell grid gap-12 py-20 md:grid-cols-[1.1fr_0.9fr] md:items-end md:py-28 lg:gap-16">
+        <div className="max-w-2xl">
+          <p className="accent-label mb-4">Software studio</p>
+          <h1 className="animate-zoom-out text-[clamp(2.25rem,4vw+1rem,3.75rem)] font-semibold leading-[1.08] tracking-[-0.03em] text-surface-on">
+            We design and ship software products for teams that need{" "}
+            <span className="text-brand">clarity</span>, speed, and craft.
+          </h1>
+        </div>
 
-          <div className="flex justify-center items-center">
-            <Link
-              className="rounded-lg bg-primary text-primary-on transition-colors flex items-center justify-center hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-              href="/contact"
-            >
-              Contact us
+        <div className="flex max-w-md flex-col gap-6 md:pb-2">
+          <p className="text-base leading-relaxed text-surface-on-variant md:text-lg">
+            Syncco Labs partners with founders and product teams to plan, build, and launch web platforms,
+            mobile apps, and internal tools.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link href="/get-quote" className="btn-primary">
+              Start a project
+              <ArrowRightIcon size={16} weight="bold" aria-hidden />
+            </Link>
+            <Link href="/contact" className="btn-secondary">
+              Talk to the team
             </Link>
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

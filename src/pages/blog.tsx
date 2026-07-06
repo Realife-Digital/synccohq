@@ -1,16 +1,8 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { Poppins } from "next/font/google";
+import PageShell from "@/components/PageShell";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Calendar, Clock, ArrowRight } from "@phosphor-icons/react/dist/ssr";
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["200", "400", "500", "600", "700"],
-});
+import { ArrowRightIcon, CalendarIcon, ClockIcon } from "@phosphor-icons/react/dist/ssr";
 
 export default function Blog() {
   const blogPosts = [
@@ -79,27 +71,23 @@ export default function Blog() {
   const categories = ["All", "Web Development", "Mobile Development", "Design", "Technology", "Security", "Performance"];
 
   return (
-    <div className={`${poppins.variable} font-[family-name:var(--font-poppins)]`}>
-      <Header />
-
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-surface to-secondary/5 py-24">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-surface-on mb-6">Our Blog</h1>
-          <p className="text-xl text-surface-on-variant mb-8 max-w-3xl mx-auto">
-            Insights, tips, and stories from the world of technology and digital innovation.
+    <PageShell>
+      <section className="border-b border-outline bg-surface-variant py-20">
+        <div className="section-shell max-w-3xl">
+          <h1 className="text-4xl font-semibold text-surface-on md:text-5xl">Insights from the studio</h1>
+          <p className="mt-4 text-lg leading-relaxed text-surface-on-variant">
+            Practical notes on product development, design, and engineering from the Syncco team.
           </p>
         </div>
       </section>
 
-      {/* Categories Filter */}
-      <section className="py-8 bg-surface-variant">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-wrap gap-4 justify-center">
+      <section className="border-b border-outline bg-surface py-8">
+        <div className="section-shell">
+          <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-6 py-2 rounded-full border border-outline hover:border-primary hover:text-primary transition-colors"
+                className="rounded-lg border border-outline px-4 py-2 text-sm font-medium text-surface-on-variant transition-colors hover:border-outline-variant hover:text-surface-on"
               >
                 {category}
               </button>
@@ -108,9 +96,8 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Featured Post */}
-      <section className="py-16 bg-surface">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="bg-surface py-16">
+        <div className="section-shell">
           <h2 className="text-3xl font-bold text-surface-on mb-8">Featured Article</h2>
           <div className="bg-surface-variant rounded-2xl overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-8">
@@ -119,13 +106,15 @@ export default function Blog() {
               </div>
               <div className="p-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="bg-primary text-primary-on px-3 py-1 rounded-full text-sm font-medium">{blogPosts[0].category}</span>
-                  <div className="flex items-center text-surface-on-variant text-sm">
-                    <Calendar size={16} className="mr-1" />
+                  <span className="rounded-md bg-surface px-3 py-1 text-sm font-medium text-surface-on-variant">
+                    {blogPosts[0].category}
+                  </span>
+                  <div className="flex items-center text-sm text-surface-on-variant">
+                    <CalendarIcon size={16} className="mr-1" aria-hidden />
                     {blogPosts[0].date}
                   </div>
-                  <div className="flex items-center text-surface-on-variant text-sm">
-                    <Clock size={16} className="mr-1" />
+                  <div className="flex items-center text-sm text-surface-on-variant">
+                    <ClockIcon size={16} className="mr-1" aria-hidden />
                     {blogPosts[0].readTime}
                   </div>
                 </div>
@@ -133,9 +122,9 @@ export default function Blog() {
                 <p className="text-surface-on-variant mb-6">{blogPosts[0].excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-surface-on-variant">By {blogPosts[0].author}</span>
-                  <Link href="#" className="flex items-center text-primary hover:text-primary/80 transition-colors">
+                  <Link href="#" className="link-subtle inline-flex items-center">
                     Read more
-                    <ArrowRight size={16} className="ml-1" />
+                    <ArrowRightIcon size={16} className="ml-1" aria-hidden />
                   </Link>
                 </div>
               </div>
@@ -145,8 +134,8 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-16 bg-surface-variant">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="bg-surface-variant py-16">
+        <div className="section-shell">
           <h2 className="text-3xl font-bold text-surface-on mb-8">Latest Articles</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.slice(1).map((post) => (
@@ -154,17 +143,17 @@ export default function Blog() {
                 <div className="relative">
                   <Image src={post.image} alt={post.title} width={400} height={250} className="object-cover w-full h-48" />
                   <div className="absolute top-4 left-4">
-                    <span className="bg-primary text-primary-on px-3 py-1 rounded-full text-sm font-medium">{post.category}</span>
+                    <span className="rounded-md bg-surface px-3 py-1 text-sm font-medium text-surface-on">{post.category}</span>
                   </div>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-4 mb-3 text-sm text-surface-on-variant">
                     <div className="flex items-center">
-                      <Calendar size={14} className="mr-1" />
+                      <CalendarIcon size={14} className="mr-1" aria-hidden />
                       {post.date}
                     </div>
                     <div className="flex items-center">
-                      <Clock size={14} className="mr-1" />
+                      <ClockIcon size={14} className="mr-1" aria-hidden />
                       {post.readTime}
                     </div>
                   </div>
@@ -172,9 +161,9 @@ export default function Blog() {
                   <p className="text-surface-on-variant mb-4 line-clamp-3">{post.excerpt}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-surface-on-variant">By {post.author}</span>
-                    <Link href="#" className="flex items-center text-primary hover:text-primary/80 transition-colors text-sm">
+                    <Link href="#" className="link-subtle inline-flex items-center text-sm">
                       Read more
-                      <ArrowRight size={14} className="ml-1" />
+                      <ArrowRightIcon size={14} className="ml-1" aria-hidden />
                     </Link>
                   </div>
                 </div>
@@ -185,24 +174,22 @@ export default function Blog() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-primary-on mb-4">Stay Updated</h2>
-          <p className="text-xl text-primary-on/80 mb-8">Subscribe to our newsletter for the latest insights and updates.</p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+      <section className="bg-primary py-16">
+        <div className="section-shell max-w-xl text-center">
+          <h2 className="text-3xl font-semibold text-primary-on">Stay updated</h2>
+          <p className="mt-3 text-base text-zinc-400">Subscribe for product and engineering notes from the studio.</p>
+          <div className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-primary-on/20"
+              className="flex-1 rounded-lg border-0 px-4 py-3 text-surface-on focus:outline-none focus:ring-2 focus:ring-zinc-600"
             />
-            <button className="bg-primary-on text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary-on/90 transition-colors">
+            <button className="btn-secondary border-zinc-700 bg-white text-surface-on hover:bg-zinc-100">
               Subscribe
             </button>
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageShell>
   );
 }

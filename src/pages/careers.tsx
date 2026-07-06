@@ -1,15 +1,7 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { Poppins } from "next/font/google";
+import PageShell from "@/components/PageShell";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState } from "react";
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["200", "400", "500", "600", "700"],
-});
 
 export default function Careers() {
   const [selectedTeam, setSelectedTeam] = useState("All teams");
@@ -68,16 +60,17 @@ export default function Careers() {
   });
 
   return (
-    <div className={`${poppins.variable} font-[family-name:var(--font-poppins)]`}>
-      <Header />
-
-      {/* Main Content */}
-      <div className="bg-white min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 py-16">
+    <PageShell>
+      <div className="min-h-screen bg-surface">
+        <div className="section-shell py-16">
           {/* Header Section */}
           <div className="mb-12">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">We have {openPositions.length} open positions</h1>
-            <p className="text-xl text-gray-600">The future of digital solutions is here. Be the one who creates it.</p>
+            <h1 className="mb-4 text-4xl font-semibold text-surface-on md:text-5xl">
+              We have {openPositions.length} open positions
+            </h1>
+            <p className="text-lg text-surface-on-variant">
+              Build products with a team that values craft, clarity, and dependable delivery.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-4 gap-8">
@@ -86,7 +79,7 @@ export default function Careers() {
               {/* Location Filter */}
               <div className="mb-8">
                 <div className="relative">
-                  <select className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent appearance-none">
+                  <select className="w-full appearance-none rounded-lg border border-outline bg-surface-variant px-4 py-3 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary">
                     <option>All locations</option>
                     <option>Lagos, Nigeria</option>
                     <option>Abuja, Nigeria</option>
@@ -102,14 +95,16 @@ export default function Careers() {
 
               {/* Team Filter */}
               <div>
-                <h3 className="text-sm font-medium text-gray-900 mb-4">Filter by teams</h3>
+                <h3 className="mb-4 text-sm font-medium text-surface-on">Filter by teams</h3>
                 <div className="space-y-2">
                   {teams.map((team) => (
                     <button
                       key={team.name}
                       onClick={() => setSelectedTeam(team.name)}
-                      className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                        selectedTeam === team.name ? "bg-primary text-white" : "hover:bg-gray-100 text-gray-700"
+                      className={`w-full rounded-lg px-4 py-3 text-left transition-colors ${
+                        selectedTeam === team.name
+                          ? "bg-primary text-primary-on"
+                          : "text-surface-on-variant hover:bg-surface-variant"
                       }`}
                     >
                       <div className="flex justify-between items-center">
@@ -132,7 +127,7 @@ export default function Careers() {
                     placeholder={`Search from ${openPositions.length} open positions`}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-4 py-3 pl-12 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full rounded-lg border border-outline bg-surface-variant py-3 pl-12 pr-4 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                   <div className="absolute inset-y-0 left-0 flex items-center pl-4">
                     <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,17 +139,17 @@ export default function Careers() {
 
               {/* Featured Roles */}
               <div className="mb-6">
-                <h2 className="text-sm font-medium text-gray-900">Featured roles</h2>
+                <h2 className="text-sm font-medium text-surface-on">Featured roles</h2>
               </div>
 
               {/* Job Listings */}
               <div className="space-y-4">
                 {filteredPositions.map((position) => (
-                  <div key={position.id} className="bg-gray-50 border border-gray-200 rounded-lg p-6 cursor-pointer">
+                  <div key={position.id} className="cursor-pointer rounded-lg border border-outline bg-surface-variant p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-2">{position.title}</h3>
-                        <div className="flex items-center gap-2 text-gray-600">
+                        <h3 className="mb-2 text-xl font-semibold text-surface-on">{position.title}</h3>
+                        <div className="flex items-center gap-2 text-surface-on-variant">
                           <span className="text-sm">
                             {position.type === "Remote" ? "Remote" : "Office"}: {position.location}
                           </span>
@@ -169,8 +164,8 @@ export default function Careers() {
               {filteredPositions.length === 0 && (
                 <div className="text-center py-12">
                   <div className="text-gray-400 text-6xl mb-4">🔍</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">No positions found</h3>
-                  <p className="text-gray-600">Try adjusting your search or filter criteria</p>
+                  <h3 className="mb-2 text-xl font-semibold text-surface-on">No positions found</h3>
+                  <p className="text-surface-on-variant">Try adjusting your search or filter criteria</p>
                 </div>
               )}
             </div>
@@ -179,38 +174,30 @@ export default function Careers() {
       </div>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-semibold text-gray-900 mb-6">Benefits at Syncco Labs</h2>
-            <p className="text-xl text-gray-600">No ping pong tables or bean bag chairs, just benefits you actually want</p>
+      <section className="border-t border-outline bg-surface py-24">
+        <div className="section-shell">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-4xl font-semibold text-surface-on">Benefits at Syncco Labs</h2>
+            <p className="text-lg text-surface-on-variant">Practical perks that support focused, sustainable work.</p>
           </div>
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
-              <h3 className="text-3xl font-semibold text-gray-900 mb-6">Get what you need to succeed</h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span className="text-gray-700 leading-tight">Financial benefits that show we value your work</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span className="text-gray-700 leading-tight">Flexibility to work from home, the office or abroad</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span className="text-gray-700 leading-tight">A complimentary Syncco Labs subscription loaded with perks</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">✓</span>
-                  <span className="text-gray-700 leading-tight">Exciting events year-round so you can get to know your team</span>
-                </li>
+              <h3 className="mb-6 text-3xl font-semibold text-surface-on">Get what you need to succeed</h3>
+              <ul className="mb-8 space-y-3">
+                {[
+                  "Competitive compensation and clear growth paths",
+                  "Flexible remote and hybrid arrangements",
+                  "Tools and learning budget for your craft",
+                  "Team events that build real connection",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 text-surface-on-variant">✓</span>
+                    <span className="leading-tight text-surface-on-variant">{item}</span>
+                  </li>
+                ))}
               </ul>
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-primary text-primary-on rounded-lg hover:bg-primary/90 transition-colors font-medium"
-              >
-                Check out Benefits
+              <Link href="/contact" className="btn-primary">
+                Learn more about benefits
               </Link>
             </div>
             <div className="relative">
@@ -223,15 +210,11 @@ export default function Careers() {
       </section>
 
       {/* Office Spaces Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-900">We build open and collaborative spaces</h2>
-          </div>
+      <section className="bg-surface-variant py-24">
+        <div className="section-shell text-center">
+          <h2 className="text-3xl font-semibold text-surface-on">We build open and collaborative spaces</h2>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </PageShell>
   );
 }

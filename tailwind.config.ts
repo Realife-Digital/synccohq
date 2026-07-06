@@ -9,6 +9,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
 
+        brand: {
+          DEFAULT: "rgb(123 97 255 / <alpha-value>)",
+          muted: "var(--brand-muted)",
+        },
+
         // Primary brand colors
         primary: {
           DEFAULT: "var(--primary)",

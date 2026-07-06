@@ -85,19 +85,14 @@ function ContactOptionCard({
     <Link
       href={href}
       {...(external ? { rel: "noopener noreferrer" } : {})}
-      className="group flex min-h-[280px] flex-col rounded-2xl border border-outline bg-surface p-6 transition-all duration-200 hover:border-primary/40 hover:shadow-lg md:min-h-[304px] md:p-8"
+      className="group flex min-h-[260px] flex-col rounded-xl border border-outline bg-surface p-6 transition-colors duration-200 hover:border-brand/25 hover:bg-brand-muted/40 md:min-h-[280px] md:p-8"
     >
-      <Icon
-        size={48}
-        weight="light"
-        className="text-surface-on-variant transition-colors duration-200 group-hover:text-primary md:size-14"
-        aria-hidden
-      />
+      <Icon size={40} weight="light" className="text-brand/70 transition-colors group-hover:text-brand" aria-hidden />
       <div aria-hidden className="flex-1" />
       <div className="flex flex-col gap-3">
         <h3 className="text-xl font-semibold tracking-tight text-surface-on">{title}</h3>
         <p className="text-sm leading-relaxed text-surface-on-variant">{description}</p>
-        <span className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors duration-200 group-hover:text-primary/80">
+        <span className="inline-flex items-center gap-2 text-sm font-medium text-surface-on transition-colors duration-200 group-hover:text-brand">
           {actionLabel}
           <ArrowRightIcon size={16} aria-hidden />
         </span>
@@ -106,13 +101,7 @@ function ContactOptionCard({
   );
 }
 
-function ContactResourceRow({
-  title,
-  description,
-  linkLabel,
-  href,
-  external,
-}: ContactResource) {
+function ContactResourceRow({ title, description, linkLabel, href, external }: ContactResource) {
   const isExternal = external ?? href.startsWith("mailto:");
 
   return (
@@ -124,7 +113,7 @@ function ContactResourceRow({
       <Link
         href={href}
         {...(isExternal ? { rel: "noopener noreferrer" } : {})}
-        className="inline-flex min-h-11 shrink-0 items-center gap-1.5 text-sm font-medium text-primary transition-colors duration-200 hover:text-primary/80"
+        className="inline-flex min-h-11 shrink-0 items-center gap-1.5 text-sm font-medium text-surface-on transition-colors duration-200 hover:text-brand"
       >
         {linkLabel}
         {isExternal ? <ArrowUpRightIcon size={16} aria-hidden /> : <ArrowRightIcon size={16} aria-hidden />}
@@ -136,7 +125,7 @@ function ContactResourceRow({
 export default function ContactPage() {
   return (
     <section className="bg-surface py-16 md:py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-16 xl:grid-cols-[minmax(0,24rem)_1fr]">
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <div className="flex flex-col gap-5">

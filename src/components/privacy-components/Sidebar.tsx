@@ -17,7 +17,7 @@ export default function PolicySidebar() {
         <ul className="space-y-0">
           {links.map(({ name, href }) => (
             <li key={name} className="border-b-2 border-outline py-3 px-2">
-              <a href={href} className="text-lg text-surface-on-variant hover:text-primary hover:underline" onClick={() => handleClick(href)}>
+              <a href={href} className="text-lg text-surface-on-variant hover:text-surface-on hover:underline" onClick={() => handleClick(href)}>
                 {name}
               </a>
             </li>

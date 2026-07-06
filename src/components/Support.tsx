@@ -1,62 +1,50 @@
 import Link from "next/link";
-import React from "react";
-import { Phone, Question, ChatCircle } from "@phosphor-icons/react/dist/ssr";
+import { ChatCircleIcon, PhoneIcon, QuestionIcon } from "@phosphor-icons/react/dist/ssr";
 
-const SupportSection = () => {
+const items = [
+  {
+    icon: PhoneIcon,
+    title: "Talk to us",
+    description: (
+      <>
+        Reach our team by email,{" "}
+        <a href="tel:+2347012824846" className="font-medium text-surface-on underline-offset-2 hover:underline">
+          phone
+        </a>
+        , or chat.
+      </>
+    ),
+    link: { label: "Contact us", href: "/contact" },
+  },
+  {
+    icon: QuestionIcon,
+    title: "Got a question?",
+    description: "Get answers from the Syncco support community and product experts.",
+    link: { label: "Visit our forum", href: "#" },
+  },
+  {
+    icon: ChatCircleIcon,
+    title: "Need help with something specific?",
+    description: "Submit a request and we will get back to you shortly.",
+    link: { label: "Submit a ticket", href: "/contact" },
+  },
+];
+
+export default function SupportSection() {
   return (
-    <div className="bg-surface-variant py-32 px-4">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-        {/* Talk to Us Section */}
-        <div>
-          <div className="flex justify-center md:justify-start items-center mb-4">
-            <Phone size={32} className="text-primary" />
+    <section className="border-t border-outline bg-surface-variant py-20">
+      <div className="section-shell grid gap-10 md:grid-cols-3">
+        {items.map(({ icon: Icon, title, description, link }) => (
+          <div key={title}>
+            <Icon size={24} className="mb-4 text-brand" aria-hidden />
+            <h3 className="mb-2 text-lg font-semibold text-surface-on">{title}</h3>
+            <p className="mb-4 text-sm leading-relaxed text-surface-on-variant">{description}</p>
+            <Link href={link.href} className="link-subtle underline-offset-2 hover:underline">
+              {link.label}
+            </Link>
           </div>
-          <h3 className="text-xl font-semibold mb-2">Talk to us!</h3>
-          <p className="text-surface-on-variant mb-4">
-            Get in touch with our support team via email,{" "}
-            <a href="tel:+2347012824846" className="text-primary hover:underline">
-              call
-            </a>
-            , or chat. You can also tweet us @synccolabs
-          </p>
-
-          <Link href="/contact" className="text-primary hover:underline font-medium">
-            Contact us
-          </Link>
-          {/* <a
-            href="tel:+2347012824846"
-            className="text-primary text-xl  hover:underline font-medium"
-          >
-            +234 701 282 4846
-          </a> */}
-        </div>
-
-        {/* Got a Question Section */}
-        <div>
-          <div className="flex justify-center md:justify-start items-center mb-4">
-            <Question size={32} className="text-primary" />
-          </div>
-          <h3 className="text-xl font-semibold mb-2">Got a Question?</h3>
-          <p className="text-surface-on-variant mb-4">Get answers from the experts from the Syncco Support community.</p>
-          <a href="#" className="text-primary hover:underline font-medium">
-            Visit our forum
-          </a>
-        </div>
-
-        {/* Submit a Ticket Section */}
-        <div>
-          <div className="flex justify-center md:justify-start items-center mb-4">
-            <ChatCircle size={32} className="text-primary" />
-          </div>
-          <h3 className="text-xl font-semibold mb-2">Can&#39;t find what you&#39;re looking for?</h3>
-          <p className="text-surface-on-variant mb-4">Submit a request and we&#39;ll get back to you soon!</p>
-          <Link href="/contact" className="text-primary hover:underline font-medium">
-            Submit a ticket
-          </Link>
-        </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
-};
-
-export default SupportSection;
+}

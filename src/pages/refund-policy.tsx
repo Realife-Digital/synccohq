@@ -1,32 +1,18 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import PolicySidebar from "@/components/privacy-components/Sidebar";
 import RefundContent from "@/components/privacy-components/Refund";
-import { Poppins } from "next/font/google";
-
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["200", "400", "500", "600", "700"],
-});
+import PageShell from "@/components/PageShell";
 
 export default function RefundPage() {
   return (
-    <div
-      className={`${poppins.variable} font-[family-name:var(--font-poppins)]`}
-    >
-      <Header />
-      <div className="flex flex-col justify-center max-w-6xl md:flex-row mx-4 my-4 md:mx-8 lg:mx-auto py-4 lg:py-32">
-        {/* Sidebar */}
-        <div className="w-full md:w-1/4 max-h-72 lg:h-full md:mb-0">
+    <PageShell>
+      <div className="section-shell flex flex-col justify-center py-8 md:flex-row md:py-24">
+        <div className="mb-8 w-full max-h-72 md:mb-0 md:w-1/4 lg:h-full">
           <PolicySidebar />
         </div>
-        {/* Main Content */}
-        <main className="w-full md:w-3/4 lg:px-16 px-4">
+        <main className="w-full px-0 md:w-3/4 lg:px-16">
           <RefundContent />
         </main>
       </div>
-      <Footer />
-    </div>
+    </PageShell>
   );
 }
