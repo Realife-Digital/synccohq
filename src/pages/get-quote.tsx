@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { Poppins } from "next/font/google";
 import React, { useState } from "react";
-import { Check } from "@phosphor-icons/react";
+import { Check } from "@phosphor-icons/react/dist/ssr";
 
 const poppins = Poppins({
   variable: "--font-poppins",

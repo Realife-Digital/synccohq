@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { Phone, Question, ChatCircle } from "@phosphor-icons/react";
+import { Phone, Question, ChatCircle } from "@phosphor-icons/react/dist/ssr";
 
 const SupportSection = () => {
   return (

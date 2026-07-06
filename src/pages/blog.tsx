@@ -4,7 +4,7 @@ import { Poppins } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { Calendar, Clock, ArrowRight } from "@phosphor-icons/react";
+import { Calendar, Clock, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 
 const poppins = Poppins({
   variable: "--font-poppins",
